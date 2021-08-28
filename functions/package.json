@@ -4,6 +4,7 @@
   "description": "Telegram bot for songs",
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
+    "typecheck": "tsc --noEmit",
     "build": "tsc",
     "serve": "npm run build && firebase emulators:start --only functions",
     "shell": "npm run build && firebase functions:shell",
