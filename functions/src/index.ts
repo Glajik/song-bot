@@ -16,7 +16,6 @@ bot.on('sticker', (ctx) => ctx.reply('👍'));
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
 bot.command('hello', (ctx) => ctx.reply('Hello, friend!'));
 
-
 const REGION = 'europe-west3';
 const PROJECT_ID = 'song-bot-1232f';
 const FUNCTION_NAME = 'botFunction';
