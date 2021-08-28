@@ -16,14 +16,14 @@ bot.on('sticker', (ctx) => ctx.reply('👍'));
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
 bot.command('hello', (ctx) => ctx.reply('Hello, friend!'));
 
-const REGION = 'europe-west3';
 const PROJECT_ID = 'song-bot-1232f';
+const REGION = 'us-central1';
 const FUNCTION_NAME = 'botFunction';
 
 const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_NAME}`;
-const url_dev = `https://969f-46-250-20-79.ngrok.io/${PROJECT_ID}/us-central1/${FUNCTION_NAME}`;
+const url_dev = `https://969f-46-250-20-79.ngrok.io/${PROJECT_ID}/${REGION}/${FUNCTION_NAME}`;
 
-bot.telegram.setWebhook(url_dev);
+bot.telegram.setWebhook(url);
 
 // error handling
 bot.catch((err, ctx) => {
@@ -49,4 +49,4 @@ const botFunction = async (req: Request, res: Response) => {
 
 bot.launch();
 
-export default { botFunction: functions.https.onRequest(botFunction) };
+exports.botFunction = functions.https.onRequest(botFunction);
